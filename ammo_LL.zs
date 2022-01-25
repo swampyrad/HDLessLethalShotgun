@@ -27,8 +27,34 @@ class HDLLShellAmmo:HDRoundAmmo{
 		lls1 A -1;
 		stop;
 	death:
-		ESHL A -1{
+		ELLS A -1{
 			if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("FreeShell");
+			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
+		}stop;
+	}
+}
+class HDLLSpentShell:HDDebris{
+	default{
+		-noteleport +forcexybillboard
+		seesound "misc/casing2";scale 0.3;height 2;radius 2;
+		bouncefactor 0.5;
+	}
+	override void postbeginplay(){
+		super.postbeginplay();
+		if(Wads.CheckNumForName("id",0)==-1)A_SetTranslation("FreeShell");
+		if(vel==(0,0,0))A_ChangeVelocity(0.0001,0,-0.1,CVF_RELATIVE);
+	}
+	vector3 lastvel;
+	override void Tick(){
+		if(!isFrozen())lastvel=vel;
+		super.Tick();
+	}
+	states{
+	spawn:
+		ELLS ABCDEFGH 2;
+		loop;
+	death:
+		ELLS A -1{
 			frame=randompick(0,0,0,0,4,4,4,4,2,2,5);
 		}stop;
 	}
@@ -40,7 +66,7 @@ class HDLLFumblingShell:HDSpentShell{
 	}
 	states{
 	spawn:
-		ESHL ABCDEFGH 2;
+		ELLS ABCDEFGH 2;
 		loop;
 	death:
 		TNT1 A 0{

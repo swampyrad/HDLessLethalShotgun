@@ -159,7 +159,7 @@ class LLHunter:HDLLShotgun{
 			}
 		}else if(chm>0){	
 			cockdir*=frandom(1.,1.3);
-			[gbg,fbs]=A_SpawnItemEx("HDSpentShell",
+			[gbg,fbs]=A_SpawnItemEx("HDLLSpentShell",
 				cos(pitch)*8,frandom(-0.1,0.1),height-8-sin(pitch)*8,
 				vel.x+cockdir.x,vel.y+cockdir.y,vel.z+cockdir.z,
 				0,SXF_ABSOLUTEMOMENTUM|SXF_NOCHECKPOSITION|SXF_TRANSFERPITCH
@@ -390,7 +390,7 @@ class LLHunter:HDLLShotgun{
 			if(chm==2){
 				invoker.handshells++;
 				EmptyHand(careful:true);
-			}else if(chm==1)A_SpawnItemEx("HDSpentShell",
+			}else if(chm==1)A_SpawnItemEx("HDLLSpentShell",
 				cos(pitch)*8,0,height-7-sin(pitch)*8,
 				vel.x+cos(pitch)*cos(angle-random(86,90))*5,
 				vel.y+cos(pitch)*sin(angle-random(86,90))*5,
@@ -585,7 +585,7 @@ class LLHunter:HDLLShotgun{
 					A_StartSound("weapons/pocket",9);
 					A_SetTics(5);
 				}
-			}else if(chm>0)A_SpawnItemEx("HDSpentShell",
+			}else if(chm>0)A_SpawnItemEx("HDLLSpentShell",
 				cos(pitch)*8,0,height-7-sin(pitch)*8,
 				vel.x+cos(pitch)*cos(angle-random(86,90))*5,
 				vel.y+cos(pitch)*sin(angle-random(86,90))*5,

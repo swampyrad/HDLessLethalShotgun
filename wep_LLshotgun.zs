@@ -30,7 +30,7 @@ class HDLLShotgun:HDWeapon{
 				);
 			}else{
 				invoker.handshells--;
-				A_SpawnItemEx("HDFumblingShell",
+				A_SpawnItemEx("HDLLFumblingShell",
 					cos(pitch)*5,1,height-7-sin(pitch)*5,
 					cos(pitch)*cos(angle)*frandom(1,4)+vel.x,
 					cos(pitch)*sin(angle)*frandom(1,4)+vel.y,

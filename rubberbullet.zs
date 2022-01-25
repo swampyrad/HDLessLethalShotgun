@@ -1,18 +1,18 @@
 class HDB_00Rubber:HDBulletActor{
 	default{
-		pushfactor 0.01;
-		mass 50;
-		speed HDCONST_MPSTODUPT*300;
-		accuracy 1;
-		stamina 1;
+		pushfactor 0.5;
+		mass 1;
+		speed HDCONST_MPSTODUPT*250;
+		accuracy 0;
+		stamina 0;
 		woundhealth 0;
-		hdbulletactor.hardness 10;
+		hdbulletactor.hardness 5;
 	}
 	 double penetration(){
 		double pen=0
 		;
 
-		double pendenom=1;
+		double pendenom=200+stamina;
 
 		if(pushfactor>0){
 			double pushed=1.+pushfactor;
